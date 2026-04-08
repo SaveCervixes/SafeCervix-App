@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cervical Cancer Screening Checker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+    }
+    button {
+      padding: 10px;
+      margin: 10px;
+      width: 80%;
+      border: none;
+      background: #e91e63;
+      color: white;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    iframe {
+      margin-top: 20px;
+      width: 100%;
+      height: 300px;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>🩺 Cervical Cancer Screening Check</h2>
+  <p>When last did you check your cervix?</p>
+
+  <button onclick="check('never')">Never</button>
+  <button onclick="check('1year')">Less than 1 year ago</button>
+  <button onclick="check('3years')">1–3 years ago</button>
+  <button onclick="check('long')">More than 3 years ago</button>
+
+  <div id="result"></div>
+
+  <iframe 
+    src="https://www.google.com/maps?q=Korle-Bu+Teaching+Hospital&output=embed">
+  </iframe>
+
+</div>
+
+<script>
+function check(answer) {
+  let message = "";
+
+  if (answer === "never") {
+    message = "⚠️ You have never screened. Please visit a health facility immediately.";
+  } 
+  else if (answer === "1year") {
+    message = "✅ Good! Continue regular screening as advised.";
+  } 
+  else if (answer === "3years") {
+    message = "⚠️ You are due for screening. Visit a clinic soon.";
+  } 
+  else {
+    message = "🚨 You need screening urgently. Please go to a hospital.";
+  }
+
+  document.getElementById("result").innerText = message;
+}
+</script>
+
+</body>
+</html>
